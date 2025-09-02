@@ -1,15 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-// State for chat session ID
-const [sessionId] = useState(() => {
-  // Generate once when component mounts
-  return Date.now().toString() + Math.floor(Math.random() * 1000);
-});
-
 const App = () => {
+  // ✅ sessionId hook must be inside a component
+  const [sessionId] = useState(() => {
+    return Date.now().toString() + Math.floor(Math.random() * 1000);
+  });
+
   // State for chat messages
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
