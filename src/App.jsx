@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+// State for chat session ID
+const [sessionId] = useState(() => {
+  // Generate once when component mounts
+  return Date.now().toString() + Math.floor(Math.random() * 1000);
+});
 
 const App = () => {
   // State for chat messages
@@ -46,7 +51,7 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: inputMessage }),
+        body: JSON.stringify({ message: inputMessage, sessionid: sessionId}),
       });
       
       let data;
