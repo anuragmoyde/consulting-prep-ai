@@ -45,7 +45,7 @@ const App = () => {
     
     try {
       // Send message to webhook
-      const response = await fetch('https://anuragmm.app.n8n.cloud/webhook/consulting-prep-ai', {
+      const response = await fetch('https://anuragmn8n.app.n8n.cloud/webhook/consulting-prep-ai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
